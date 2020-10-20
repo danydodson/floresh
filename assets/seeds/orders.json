@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "5f7cbf2161324d0f385bd65b"
+  },
+  "total": 397.61,
+  "cart": {
+    "$oid": "5f7cbf2161324d0f385bd657"
+  },
+  "user": {
+    "$oid": "5f7cb8f9eaae9c0e4e48540b"
+  },
+  "created": {
+    "$date": "2020-10-06T19:01:53.391Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7cbfff61324d0f385bd661"
+  },
+  "total": 200.54,
+  "cart": {
+    "$oid": "5f7cbfff61324d0f385bd65e"
+  },
+  "user": {
+    "$oid": "5f7cb8f9eaae9c0e4e48540b"
+  },
+  "created": {
+    "$date": "2020-10-06T19:05:35.456Z"
+  },
+  "__v": 0
+}]

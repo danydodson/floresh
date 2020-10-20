@@ -1,0 +1,36 @@
+// overrides styles
+
+// start bootstrap overrides
+.form-control {
+  height: auto;
+
+  &:focus {
+    box-shadow: $box-shadow;
+  }
+}
+
+.btn {
+  &:hover {
+    color: $white !important;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+hr {
+  border-color: $border-color-primary;
+}
+
+.lead {
+  font-size: $font-size-medium;
+}
+// end bootstrap overrides
+
+// start react-notification-system-redux overrides
+.notification {
+  .notification-title {
+    font-weight: $font-weight-normal !important;
+  }
+}
+// end react-notification-system-redux overrides

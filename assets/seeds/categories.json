@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "5f7cbfaa61324d0f385bd65c"
+  },
+  "products": [
+    {
+      "$oid": "5f7c946cfc13ae227e0000c8"
+    },
+    {
+      "$oid": "5f7c946cfc13ae227e0000ce"
+    },
+    {
+      "$oid": "5f7c946cfc13ae227e0000d8"
+    }
+  ],
+  "name": "Indoor Plants",
+  "description": "List of indoor plants.",
+  "created": {
+    "$date": "2020-10-06T19:04:10.939Z"
+  },
+  "slug": "indoor-plants",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7cbfe261324d0f385bd65d"
+  },
+  "products": [
+    {
+      "$oid": "5f7c946dfc13ae227e0000f6"
+    },
+    {
+      "$oid": "5f7c946cfc13ae227e0000d0"
+    },
+    {
+      "$oid": "5f7c946cfc13ae227e0000d2"
+    },
+    {
+      "$oid": "5f7c946dfc13ae227e0000da"
+    },
+    {
+      "$oid": "5f7c946dfc13ae227e0000f2"
+    }
+  ],
+  "name": "On Sale !",
+  "description": "Items currently on sale",
+  "created": {
+    "$date": "2020-10-06T19:05:06.467Z"
+  },
+  "slug": "on-sale",
+  "__v": 0
+}]

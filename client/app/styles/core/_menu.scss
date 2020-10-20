@@ -1,0 +1,94 @@
+// mini menu
+.mini-menu {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  background: $white;
+  height: 100%;
+  width: 370px;
+  z-index: 1000;
+  -webkit-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+  @include transition($layout-transition-higher-speed);
+
+  @include media-breakpoint-down(xs) {
+    width: 88%;
+    top: 0;
+  }
+}
+
+// show hidden menu popup
+.mini-menu-open {
+  .mini-menu {
+    visibility: visible;
+    left: 0;
+    @include transition($layout-transition-higher-speed);
+  }
+
+  .dark-overflow {
+    @include dark-overflow();
+    @include media-breakpoint-down(xs) {
+      width: 100%;
+      top: 0;
+    }
+  }
+}
+
+.navigation-menu {
+  height: 100%;
+  background-color: $theme-white;
+
+  .menu-header {
+    padding: 10px 0px 10px 30px;
+    @include flex();
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    // background-color: $white;
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  .menu-body {
+    margin-top: 20px;
+
+    .menu-list {
+      .menu-item {
+        // border-bottom: $border-default;
+        -webkit-transition: $layout-transition-speed;
+        transition: $layout-transition-speed;
+
+        &:hover {
+          background-color: $white;
+          -webkit-transition: $layout-transition-speed;
+          transition: $layout-transition-speed;
+
+          a {
+            color: $primary-color !important;
+          }
+        }
+
+        a {
+          color: $font-custom-color !important;
+          font-weight: $font-weight-bold-one;
+          text-transform: capitalize;
+          display: block;
+          padding: 10px 30px 10px 30px;
+          border-left: 3px solid transparent;
+        }
+
+        a.active-link {
+          font-weight: $font-weight-bold-two;
+          color: $primary-color !important;
+          border-color: $primary-color;
+          -webkit-transition: border-color ease-in $layout-transition-speed;
+          transition: border-color ease-in $layout-transition-speed;
+          background-color: $white;
+        }
+      }
+    }
+  }
+}

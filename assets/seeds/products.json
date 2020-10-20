@@ -1,0 +1,451 @@
+[{
+  "_id": {
+    "$oid": "5f7c946cfc13ae227e0000c8"
+  },
+  "taxable": true,
+  "name": "Allegheny Plum",
+  "description": "MRI of R Up Arm using Oth Contrast",
+  "quantity": 16,
+  "price": 14.45,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019a"
+  },
+  "created": {
+    "$date": "2020-05-21T19:54:26Z"
+  },
+  "slug": "allegheny-plum296",
+  "sku": "265756667-7",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946cfc13ae227e0000ca"
+  },
+  "taxable": false,
+  "name": "Spotted Peperomia",
+  "description": "Restriction of Right Vertebral Vein, Perc Endo Approach",
+  "quantity": 16,
+  "price": 181.29,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019a"
+  },
+  "created": {
+    "$date": "2019-12-11T10:55:12Z"
+  },
+  "slug": "spotted-peperomia-820",
+  "sku": "898390994-3",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c8bacfc13ae546300019b"
+  },
+  "taxable": false,
+  "name": "Western Spruce Dwarf Mistletoe",
+  "description": "Removal of Packing Material on Abdominal Wall",
+  "quantity": 16,
+  "price": 89.87,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019a"
+  },
+  "created": {
+    "$date": "2020-09-18T23:25:16Z"
+  },
+  "slug": "western-spruce-dwarf-mistletoe-828",
+  "sku": "600236901-5",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946cfc13ae227e0000ce"
+  },
+  "taxable": false,
+  "name": "Hoary Buckwheat",
+  "description": "Drainage of Lum Vertebra with Drain Dev, Perc Endo Approach",
+  "quantity": 7,
+  "price": 19.25,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae54630001a7"
+  },
+  "created": {
+    "$date": "2019-10-31T23:59:25Z"
+  },
+  "slug": "hoary-buckwheat-402",
+  "sku": "293230273-6",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946cfc13ae227e0000d0"
+  },
+  "taxable": false,
+  "name": "Fourwing Saltbush",
+  "description": "Destruction of L Up Extrem Bursa/Lig, Open Approach",
+  "quantity": 19,
+  "price": 18.27,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019c"
+  },
+  "created": {
+    "$date": "2020-03-15T13:46:42Z"
+  },
+  "slug": "fourwing-saltbush-476",
+  "sku": "148016307-4",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946cfc13ae227e0000d2"
+  },
+  "taxable": true,
+  "name": "Siskiyou False Hellebore",
+  "description": "Replacement of L Hip Jt with Metal, Cement, Open Approach",
+  "quantity": 8,
+  "price": 53.26,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae54630001a5"
+  },
+  "created": {
+    "$date": "2020-07-25T03:37:29Z"
+  },
+  "slug": "siskiyou-false-hellebore-425",
+  "sku": "388686957-1",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946cfc13ae227e0000d4"
+  },
+  "taxable": false,
+  "name": "Globe Bladderpod",
+  "description": "Removal of Drainage Device from Bone Marrow, Open Approach",
+  "quantity": 16,
+  "price": 152.46,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae54630001a2"
+  },
+  "created": {
+    "$date": "2019-10-26T14:59:33Z"
+  },
+  "slug": "globe-bladderpod-404",
+  "sku": "231504707-2",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946cfc13ae227e0000d6"
+  },
+  "taxable": true,
+  "name": "Pinleaf Vervain",
+  "description": "Beam Radiation of Abdomen Skin using Photons 1 - 10 MeV",
+  "quantity": 14,
+  "price": 69.65,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019d"
+  },
+  "created": {
+    "$date": "2019-10-07T23:40:00Z"
+  },
+  "slug": "pinleaf-vervain-430",
+  "sku": "140644568-1",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946cfc13ae227e0000d8"
+  },
+  "taxable": false,
+  "name": "Crocynia Lichen",
+  "description": "Destruction of Left Hip Joint, Open Approach",
+  "quantity": 20,
+  "price": 137.02,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019d"
+  },
+  "created": {
+    "$date": "2020-01-14T09:11:08Z"
+  },
+  "slug": "crocynia-lichen-680",
+  "sku": "221070401-4",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000da"
+  },
+  "taxable": false,
+  "name": "Cyrtandra",
+  "description": "Repair Right Sacroiliac Joint, External Approach",
+  "quantity": 18,
+  "price": 181.57,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019f"
+  },
+  "created": {
+    "$date": "2019-12-11T14:12:08Z"
+  },
+  "slug": "cyrtandra-832",
+  "sku": "217216008-3",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000dc"
+  },
+  "taxable": false,
+  "name": "Featherleaf Kittentails",
+  "description": "Remove Synth Sub from Low Extrem Subcu/Fascia, Perc",
+  "quantity": 12,
+  "price": 126.45,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019e"
+  },
+  "created": {
+    "$date": "2020-08-04T01:46:21Z"
+  },
+  "slug": "featherleaf-kittentails-573",
+  "sku": "467594201-6",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000de"
+  },
+  "taxable": true,
+  "name": "Rocky Mountain Stickweed",
+  "description": "Introduce Electrol/Water Bal in Pleural Cav, Perc",
+  "quantity": 19,
+  "price": 114.11,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019e"
+  },
+  "created": {
+    "$date": "2020-02-25T14:07:56Z"
+  },
+  "slug": "rocky-mountain-stickweed-443",
+  "sku": "007042017-3",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000e0"
+  },
+  "taxable": true,
+  "name": "Spreading Pygmyleaf",
+  "description": "Excision of Left Upper Extremity, Open Approach",
+  "quantity": 11,
+  "price": 189.55,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019d"
+  },
+  "created": {
+    "$date": "2020-04-15T11:38:29Z"
+  },
+  "slug": "spreading-pygmyleaf-928",
+  "sku": "167320124-5",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000e2"
+  },
+  "taxable": true,
+  "name": "Threeflower Hawthorn",
+  "description": "Excision of R Low Extrem Bursa/Lig, Open Approach",
+  "quantity": 14,
+  "price": 65.66,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019d"
+  },
+  "created": {
+    "$date": "2019-12-19T09:15:28Z"
+  },
+  "slug": "threeflower-hawthorn-62",
+  "sku": "534542491-8",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000e4"
+  },
+  "taxable": false,
+  "name": "Goatsfoot",
+  "description": "Tomo Nucl Med Imag Mult Anatom Region w Oth Radionuclide",
+  "quantity": 19,
+  "price": 76.47,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019d"
+  },
+  "created": {
+    "$date": "2020-05-12T07:14:59Z"
+  },
+  "slug": "goats-foot-270",
+  "sku": "417291147-1",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000e6"
+  },
+  "taxable": false,
+  "name": "Tamaulipas Amaranth",
+  "description": "Measurement of Gastrointestinal Pressure, Via Opening",
+  "quantity": 2,
+  "price": 23.35,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019d"
+  },
+  "created": {
+    "$date": "2020-09-13T05:58:47Z"
+  },
+  "slug": "tamaulipas-amaranth-947",
+  "sku": "991049675-5",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000e8"
+  },
+  "taxable": true,
+  "name": "Hydrocleys",
+  "description": "Drainage of Lower Esophagus, Perc Endo Approach, Diagn",
+  "quantity": 2,
+  "price": 129.77,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019c"
+  },
+  "created": {
+    "$date": "2020-03-11T13:20:27Z"
+  },
+  "slug": "hydrocleys-870",
+  "sku": "262641256-2",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000ea"
+  },
+  "taxable": false,
+  "name": "Stansbury's Rockdaisy",
+  "description": "Inspection of Right Toe Phalangeal Joint, Perc Endo Approach",
+  "quantity": 19,
+  "price": 13.94,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019c"
+  },
+  "created": {
+    "$date": "2020-02-10T13:16:04Z"
+  },
+  "slug": "stansbury's-rockdais-967",
+  "sku": "732794414-1",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000ec"
+  },
+  "taxable": false,
+  "name": "Sulphur Hot Springs Buckwheat",
+  "description": "Excision of Supernumerary Breast, Via Opening, Diagn",
+  "quantity": 11,
+  "price": 11.88,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019c"
+  },
+  "created": {
+    "$date": "2020-04-21T17:35:45Z"
+  },
+  "slug": "sulphur-hot-springs-buckwheat902",
+  "sku": "017106075-X",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000ee"
+  },
+  "taxable": true,
+  "name": "Cimarron Buckwheat",
+  "description": "Release Upper Artery, Percutaneous Approach",
+  "quantity": 12,
+  "price": 74.57,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae546300019c"
+  },
+  "created": {
+    "$date": "2019-10-20T15:55:44Z"
+  },
+  "slug": "cimarron-buckwheat-79",
+  "sku": "693047287-5",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000f0"
+  },
+  "taxable": false,
+  "name": "Erigenia",
+  "description": "Computerized Tomography (CT Scan) of Bi Acromioclav Jt",
+  "quantity": 6,
+  "price": 128.09,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae54630001a4"
+  },
+  "created": {
+    "$date": "2019-11-07T07:55:56Z"
+  },
+  "slug": "erigenia-133",
+  "sku": "492518209-9",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000f2"
+  },
+  "taxable": false,
+  "name": "Dioscoreophyllum",
+  "description": "Occlusion of Right Renal Vein, Open Approach",
+  "quantity": 7,
+  "price": 75.4,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae54630001a5"
+  },
+  "created": {
+    "$date": "2020-03-30T06:03:22Z"
+  },
+  "slug": "dioscoreophyllum-347",
+  "sku": "905263467-X",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000f4"
+  },
+  "taxable": true,
+  "name": "Redflower Gum",
+  "description": "Replace of R Low Femur with Nonaut Sub, Perc Endo Approach",
+  "quantity": 7,
+  "price": 109.75,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae54630001a6"
+  },
+  "created": {
+    "$date": "2020-01-28T09:46:29Z"
+  },
+  "slug": "redflower-gum-983",
+  "sku": "083543928-3",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000f6"
+  },
+  "taxable": true,
+  "name": "Fox Sedge",
+  "description": "HDR Brachytherapy of Urethra using Californium 252",
+  "quantity": 16,
+  "price": 132.48,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae54630001a7"
+  },
+  "created": {
+    "$date": "2019-10-21T18:20:28Z"
+  },
+  "slug": "fox-sedge-873",
+  "sku": "169079362-7",
+  "_v": 0
+},{
+  "_id": {
+    "$oid": "5f7c946dfc13ae227e0000f8"
+  },
+  "taxable": true,
+  "name": "Raintree",
+  "description": "Dilate L Subclav Art, Bifurc, w 2 Drug-elut, Perc Endo",
+  "quantity": 9,
+  "price": 89.94,
+  "variety": {
+    "$oid": "5f7c8bacfc13ae54630001a8"
+  },
+  "created": {
+    "$date": "2019-10-10T16:01:32Z"
+  },
+  "slug": "raintree-494",
+  "sku": "502780166-1",
+  "_v": 0
+}]

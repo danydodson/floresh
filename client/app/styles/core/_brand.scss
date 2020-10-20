@@ -1,0 +1,34 @@
+.brand-dashboard {
+  // .table-section {
+  //   margin: 20px 0px;
+  // }
+
+  .desc-column {
+    white-space: normal !important;
+    @include text-ellipsis(2, 2);
+  }
+}
+
+.brand-list {
+  .brand-box {
+    padding: 10px;
+    border: $border-default;
+    height: 100%;
+
+    .brand-link {
+      display: block;
+    }
+
+    &:hover {
+      border-color: $border-hover-color;
+      -moz-transition: border-color $layout-transition-speed ease-in-out;
+      -webkit-transition: border-color $layout-transition-speed ease-in-out;
+      -ms-transition: border-color $layout-transition-speed ease-in-out;
+      transition: border-color $layout-transition-speed ease-in-out;
+    }
+
+    .brand-desc {
+      @include text-ellipsis(2);
+    }
+  }
+}
