@@ -1,10 +1,10 @@
-const keys = require('./keys');
-const { key, domain, sender } = keys.mailgun;
+const keys = require('./keys')
+const { key, domain, sender } = keys.mailgun
 
 const mailgun = require('mailgun-js')({
   apiKey: key,
   domain: domain
-});
+})
 
 exports.sendEmail = (recipient, message) => {
   return new Promise((resolve, reject) => {
@@ -13,14 +13,14 @@ exports.sendEmail = (recipient, message) => {
       to: recipient,
       subject: message.subject,
       text: message.text
-    };
+    }
 
     mailgun.messages().send(data, (error, body) => {
       if (error) {
-        reject(error);
+        reject(error)
       } else {
-        resolve(body);
+        resolve(body)
       }
-    });
-  });
-};
+    })
+  })
+}

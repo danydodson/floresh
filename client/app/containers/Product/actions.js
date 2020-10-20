@@ -209,8 +209,7 @@ export const addProduct = () => {
         'min.name': 'Name must be at least 6 characters.',
         'required.description': 'Description is required.',
         'min.description': 'Description must be at least 10 characters.',
-        'max.description':
-          'Description may not be greater than 100 characters.',
+        'max.description': 'Description may not be greater than 100 characters.',
         'required.quantity': 'Quantity is required.',
         'required.price': 'Price is required.',
         'required.taxable': 'Taxable is required.',
@@ -231,10 +230,7 @@ export const addProduct = () => {
 
       if (response.data.success === true) {
         dispatch(success(successfulOptions));
-        dispatch({
-          type: ADD_PRODUCT,
-          payload: response.data.product
-        });
+        dispatch({ type: ADD_PRODUCT, payload: response.data.product });
         dispatch({ type: RESET_PRODUCT });
         dispatch({ type: RESET_BRAND });
         dispatch(toggleAddProduct());

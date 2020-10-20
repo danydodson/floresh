@@ -2,16 +2,17 @@
  *
  * token.js
  * axios default headers setup
+ *
  */
 
-import axios from 'axios';
+import axios from 'axios'
 
-const setToken = token => {
+const setToken = (token) => {
   if (token) {
-    axios.defaults.headers.common['Authorization'] = token;
+    axios.defaults.headers.common['Authorization'] = token
   } else {
-    delete axios.defaults.headers.common['Authorization'];
+    delete axios.defaults.headers.common['Authorization']
   }
-};
+}
 
-export default setToken;
+export default setToken

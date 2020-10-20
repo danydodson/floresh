@@ -1,35 +1,35 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
 // Bring in Models & Helpers
-const Order = require('../../models/order');
-const Cart = require('../../models/cart');
-const auth = require('../../middleware/auth');
-const mailgun = require('../../services/mailgun');
-const taxConfig = require('../../config/tax');
+const Order = require('../../models/order')
+const Cart = require('../../models/cart')
+const auth = require('../../middleware/auth')
+const mailgun = require('../../services/mailgun')
+const taxConfig = require('../../config/tax')
 
 router.post('/add', auth, async (req, res) => {
   try {
-    const cart = req.body.cartId;
-    const total = req.body.total;
-    const user = req.user._id;
+    const cart = req.body.cartId
+    const total = req.body.total
+    const user = req.user._id
 
     const order = new Order({
       cart,
       user,
       total
-    });
+    })
 
-    const orderDoc = await order.save();
+    const orderDoc = await order.save()
 
-    await Order.findById(orderDoc._id).populate('cart user', '-password');
+    await Order.findById(orderDoc._id).populate('cart user', '-password')
 
     const cartDoc = await Cart.findById(orderDoc.cart._id).populate({
       path: 'products.product',
       populate: {
         path: 'brand'
       }
-    });
+    })
 
     const newOrder = {
       _id: orderDoc._id,
@@ -37,83 +37,83 @@ router.post('/add', auth, async (req, res) => {
       user: orderDoc.user,
       total: orderDoc.total,
       products: cartDoc.products
-    };
+    }
 
-    await mailgun.sendEmail(order.user.email, 'order-confirmation', newOrder);
+    await mailgun.sendEmail(order.user.email, 'order-confirmation', newOrder)
 
     res.status(200).json({
       success: true,
       message: `Your order has been placed successfully!`,
       order: { _id: orderDoc._id }
-    });
+    })
   } catch (error) {}
-});
+})
 
 // fetch all orders api
 router.get('/list', auth, async (req, res) => {
   try {
-    const user = req.user._id;
+    const user = req.user._id
 
     const orders = await Order.find({ user }).populate({
       path: 'cart'
-    });
+    })
 
-    const newOrders = orders.filter(order => order.cart);
+    const newOrders = orders.filter((order) => order.cart)
 
     if (newOrders.length > 0) {
-      const newDataSet = [];
+      const newDataSet = []
 
-      newOrders.map(async doc => {
-        const cartId = doc.cart._id;
+      newOrders.map(async (doc) => {
+        const cartId = doc.cart._id
 
         const cart = await Cart.findById(cartId).populate({
           path: 'products.product',
           populate: {
             path: 'brand'
           }
-        });
+        })
 
         const order = {
           _id: doc._id,
           total: parseFloat(Number(doc.total.toFixed(2))),
           created: doc.created,
           products: cart.products
-        };
+        }
 
-        newDataSet.push(order);
+        newDataSet.push(order)
 
         if (newDataSet.length === newOrders.length) {
           res.status(200).json({
             orders: newDataSet
-          });
+          })
         }
-      });
+      })
     } else {
       res.status(404).json({
         message: `You have no orders yet!`
-      });
+      })
     }
   } catch (error) {
     res.status(400).json({
       error: 'Your request could not be processed. Please try again.'
-    });
+    })
   }
-});
+})
 
 // fetch order api
 router.get('/:orderId', auth, async (req, res) => {
   try {
-    const orderId = req.params.orderId;
-    const user = req.user._id;
+    const orderId = req.params.orderId
+    const user = req.user._id
 
     const orderDoc = await Order.findOne({ _id: orderId, user }).populate({
       path: 'cart'
-    });
+    })
 
     if (!orderDoc) {
       res.status(404).json({
         message: `Cannot find order with the id: ${orderId}.`
-      });
+      })
     }
 
     const cart = await Cart.findById(orderDoc.cart._id).populate({
@@ -121,7 +121,7 @@ router.get('/:orderId', auth, async (req, res) => {
       populate: {
         path: 'brand'
       }
-    });
+    })
 
     let order = {
       _id: orderDoc._id,
@@ -130,103 +130,101 @@ router.get('/:orderId', auth, async (req, res) => {
       totalTax: 0,
       created: cart.created,
       products: cart.products
-    };
+    }
 
-    order = caculateTaxAmount(order);
+    order = caculateTaxAmount(order)
 
     res.status(200).json({
       order
-    });
+    })
   } catch (error) {
     res.status(400).json({
       error: 'Your request could not be processed. Please try again.'
-    });
+    })
   }
-});
+})
 
 router.delete('/cancel/:orderId', auth, async (req, res) => {
   try {
-    const orderId = req.params.orderId;
+    const orderId = req.params.orderId
 
-    const order = await Order.findOne({ _id: orderId });
+    const order = await Order.findOne({ _id: orderId })
 
-    await Order.deleteOne({ _id: orderId });
-    await Cart.deleteOne({ _id: order.cart });
+    await Order.deleteOne({ _id: orderId })
+    await Cart.deleteOne({ _id: order.cart })
 
     res.status(200).json({
       success: true
-    });
+    })
   } catch (error) {
     res.status(400).json({
       error: 'Your request could not be processed. Please try again.'
-    });
+    })
   }
-});
+})
 
 router.put('/cancel/item/:itemId', auth, async (req, res) => {
   try {
-    const itemId = req.params.itemId;
-    const orderId = req.body.orderId;
-    const cartId = req.body.cartId;
+    const itemId = req.params.itemId
+    const orderId = req.body.orderId
+    const cartId = req.body.cartId
 
     await Cart.updateOne(
       { 'products._id': itemId },
       {
         'products.$.status': 'Cancelled'
       }
-    );
+    )
 
-    const cart = await Cart.findOne({ _id: cartId });
-    const items = cart.products.filter(item => item.status === 'Cancelled');
+    const cart = await Cart.findOne({ _id: cartId })
+    const items = cart.products.filter((item) => item.status === 'Cancelled')
 
     // All items are cancelled => Cancel order
     if (cart.products.length === items.length) {
-      await Order.deleteOne({ _id: orderId });
-      await Cart.deleteOne({ _id: cartId });
+      await Order.deleteOne({ _id: orderId })
+      await Cart.deleteOne({ _id: cartId })
 
       return res.status(200).json({
         success: true,
         orderCancelled: true,
         message: 'You order has been cancelled successfully!'
-      });
+      })
     }
 
     res.status(200).json({
       success: true,
       message: 'Item has been cancelled successfully!'
-    });
+    })
   } catch (error) {
     res.status(400).json({
       error: 'Your request could not be processed. Please try again.'
-    });
+    })
   }
-});
+})
 
 // calculate order tax amount
-const caculateTaxAmount = order => {
-  const taxRate = taxConfig.stateTaxRate;
+const caculateTaxAmount = (order) => {
+  const taxRate = taxConfig.stateTaxRate
 
-  order.totalTax = 0;
+  order.totalTax = 0
 
-  order.products.map(item => {
+  order.products.map((item) => {
     if (item.product.taxable) {
-      const price = Number(item.product.price).toFixed(2);
-      const taxAmount = Math.round(price * taxRate * 100) / 100;
-      item.priceWithTax = parseFloat(price) + parseFloat(taxAmount);
-      order.totalTax += taxAmount;
+      const price = Number(item.product.price).toFixed(2)
+      const taxAmount = Math.round(price * taxRate * 100) / 100
+      item.priceWithTax = parseFloat(price) + parseFloat(taxAmount)
+      order.totalTax += taxAmount
     }
 
-    item.totalPrice = parseFloat(item.totalPrice.toFixed(2));
-  });
+    item.totalPrice = parseFloat(item.totalPrice.toFixed(2))
+  })
 
-  order.totalWithTax = order.total + order.totalTax;
+  order.totalWithTax = order.total + order.totalTax
 
-  order.total = parseFloat(Number(order.total.toFixed(2)));
-  order.totalTax = parseFloat(
-    Number(order.totalTax && order.totalTax.toFixed(2))
-  );
-  order.totalWithTax = parseFloat(Number(order.totalWithTax.toFixed(2)));
-  return order;
-};
+  order.total = parseFloat(Number(order.total.toFixed(2)))
+  order.totalTax = parseFloat(Number(order.totalTax && order.totalTax.toFixed(2)))
+  order.totalWithTax = parseFloat(Number(order.totalWithTax.toFixed(2)))
+  return order
+}
 
-module.exports = router;
+module.exports = router

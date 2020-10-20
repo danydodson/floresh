@@ -4,13 +4,12 @@
   "description": "floresh",
   "main": "server/index.js",
   "scripts": {
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --progress --colors",
+    "build": "yarn run clean && cross-env NODE_ENV=production webpack --progress --colors",
     "clean": "rimraf ./dist/*",
     "start": "cross-env NODE_ENV=development nodemon server",
     "start:production": "cross-env NODE_ENV=production node server",
-    "production": "npm run build",
-    "postinstall": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "production": "yarn run build",
+    "postinstall": "yarn run build"
   },
   "dependencies": {
     "axios": "^0.19.0",

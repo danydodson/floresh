@@ -1,1 +1,1 @@
-web: node server
+web: yarn run start:production

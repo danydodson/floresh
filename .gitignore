@@ -2,11 +2,9 @@
 /node_modules
 
 # production
-/assets/*
-/build/*
-/build/.*
-/dist/*
-/dist/.*
+/assets
+/build
+/dist
   
 # misc
 package-lock.json

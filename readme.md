@@ -39,7 +39,7 @@ This application is deployed on Heroku. Please check it out :smile: [here](https
 Some basic Git commands are:
 
 ```
-$ git clone https://github.com/mohamedsamara/mern-ecommerce.git
+$ git clone https://github.com/danydodson/floresh.git
 $ cd project
 $ npm install
 ```

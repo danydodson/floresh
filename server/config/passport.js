@@ -1,38 +1,38 @@
-const passport = require('passport');
-const JwtStrategy = require('passport-jwt').Strategy;
-const GoogleStrategy = require('passport-google-oauth2').Strategy;
-const FacebookStrategy = require('passport-facebook').Strategy;
+const passport = require('passport')
+const JwtStrategy = require('passport-jwt').Strategy
+const GoogleStrategy = require('passport-google-oauth2').Strategy
+const FacebookStrategy = require('passport-facebook').Strategy
 
-const ExtractJwt = require('passport-jwt').ExtractJwt;
-const mongoose = require('mongoose');
+const ExtractJwt = require('passport-jwt').ExtractJwt
+const mongoose = require('mongoose')
 
-const keys = require('./keys');
+const keys = require('./keys')
 
-const { google, facebook } = keys;
-const { serverURL, apiURL } = keys.app;
+const { google, facebook } = keys
+const { serverURL, apiURL } = keys.app
 
-const User = mongoose.model('User');
-const secret = keys.jwt.secret;
+const User = mongoose.model('User')
+const secret = keys.jwt.secret
 
-const opts = {};
-opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = secret;
+const opts = {}
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken()
+opts.secretOrKey = secret
 
 passport.use(
   new JwtStrategy(opts, (payload, done) => {
     User.findById(payload.id)
-      .then(user => {
+      .then((user) => {
         if (user) {
-          return done(null, user);
+          return done(null, user)
         }
 
-        return done(null, false);
+        return done(null, false)
       })
-      .catch(err => {
-        return done(err, false);
-      });
+      .catch((err) => {
+        return done(err, false)
+      })
   })
-);
+)
 
 passport.use(
   new GoogleStrategy(
@@ -43,12 +43,12 @@ passport.use(
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ email: profile.email })
-        .then(user => {
+        .then((user) => {
           if (user) {
-            return done(null, user);
+            return done(null, user)
           }
 
-          const name = profile.displayName.split(' ');
+          const name = profile.displayName.split(' ')
 
           const newUser = new User({
             provider: 'google',
@@ -58,22 +58,22 @@ passport.use(
             lastName: name[1],
             avatar: profile.picture,
             password: null
-          });
+          })
 
           newUser.save((err, user) => {
             if (err) {
-              return done(err, false);
+              return done(err, false)
             }
 
-            return done(null, user);
-          });
+            return done(null, user)
+          })
         })
-        .catch(err => {
-          return done(err, false);
-        });
+        .catch((err) => {
+          return done(err, false)
+        })
     }
   )
-);
+)
 
 passport.use(
   new FacebookStrategy(
@@ -81,19 +81,13 @@ passport.use(
       clientID: facebook.clientID,
       clientSecret: facebook.clientSecret,
       callbackURL: `${serverURL}/${apiURL}/${facebook.callbackURL}`,
-      profileFields: [
-        'id',
-        'displayName',
-        'name',
-        'emails',
-        'picture.type(large)'
-      ]
+      profileFields: ['id', 'displayName', 'name', 'emails', 'picture.type(large)']
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ facebookId: profile.id })
-        .then(user => {
+        .then((user) => {
           if (user) {
-            return done(null, user);
+            return done(null, user)
           }
 
           const newUser = new User({
@@ -104,19 +98,19 @@ passport.use(
             lastName: profile.name.familyName,
             avatar: profile.photos[0].value,
             password: null
-          });
+          })
 
           newUser.save((err, user) => {
             if (err) {
-              return done(err, false);
+              return done(err, false)
             }
 
-            return done(null, user);
-          });
+            return done(null, user)
+          })
         })
-        .catch(err => {
-          return done(err, false);
-        });
+        .catch((err) => {
+          return done(err, false)
+        })
     }
   )
-);
+)
