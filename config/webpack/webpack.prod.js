@@ -1,14 +1,14 @@
-const path = require('path')
-const webpack = require('webpack')
-const TerserPlugin = require('terser-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const WebpackPwaManifest = require('webpack-pwa-manifest')
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-const CURRENT_WORKING_DIR = process.cwd()
-const NODE_ENV = process.env.NODE_ENV
-const BASE_API_URL = process.env.BASE_API_URL
+const CURRENT_WORKING_DIR = process.cwd();
+const NODE_ENV = process.env.NODE_ENV;
+const BASE_API_URL = process.env.BASE_API_URL;
 
 module.exports = {
   mode: 'production',
@@ -135,11 +135,11 @@ module.exports = {
       filename: 'css/[name].[hash].css'
     }),
     new WebpackPwaManifest({
-      name: 'floresh',
-      short_name: 'floresh',
-      description: 'Plants Delivered to Your Door',
+      name: 'MERN Store',
+      short_name: 'MERNStore',
+      description: 'MERN Store!',
       background_color: '#fff',
-      theme_color: '#9dd7a4',
+      theme_color: '#4a68aa',
       inject: true,
       ios: true,
       icons: [
@@ -165,4 +165,4 @@ module.exports = {
       canPrint: true
     })
   ]
-}
+};

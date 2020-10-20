@@ -1,4 +1,4 @@
-# Floresh MERN Ecommerce Store
+# MERN Ecommerce
 
 ## Description
 
@@ -31,7 +31,7 @@ An ecommerce store built with MERN stack, and utilizes third party API's. This e
 
 ## Demo
 
-This application is deployed on Heroku. Please check it out :smile: [here](https://floresh.herokuapp.com/).
+This application is deployed on Heroku. Please check it out :smile: [here](https://mern-store-80202.herokuapp.com/).
 
 
 ## Install
@@ -39,7 +39,7 @@ This application is deployed on Heroku. Please check it out :smile: [here](https
 Some basic Git commands are:
 
 ```
-$ git clone https://github.com/danydodson/floresh.git
+$ git clone https://github.com/mohamedsamara/mern-ecommerce.git
 $ cd project
 $ npm install
 ```

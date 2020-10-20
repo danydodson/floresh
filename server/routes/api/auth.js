@@ -7,8 +7,6 @@ const passport = require('passport');
 
 const auth = require('../../middleware/auth');
 
-const chalk = require('chalk')
-
 // Bring in Models & Helpers
 const User = require('../../models/user');
 const mailchimp = require('../../services/mailchimp');
@@ -314,81 +312,82 @@ router.post('/reset', auth, (req, res) => {
   });
 });
 
-// router.get('/google',
-//   passport.authenticate('google', {
-//     session: false,
-//     scope: ['profile', 'email'],
-//     accessType: 'offline',
-//     approvalPrompt: 'force'
-//   })
-// );
+router.get(
+  '/google',
+  passport.authenticate('google', {
+    session: false,
+    scope: ['profile', 'email'],
+    accessType: 'offline',
+    approvalPrompt: 'force'
+  })
+);
 
-// router.get(
-//   '/google/callback',
-//   passport.authenticate('google', {
-//     failureRedirect: '/login',
-//     session: false
-//   }),
-//   (req, res) => {
-//     const payload = {
-//       id: req.user.id
-//     };
+router.get(
+  '/google/callback',
+  passport.authenticate('google', {
+    failureRedirect: '/login',
+    session: false
+  }),
+  (req, res) => {
+    const payload = {
+      id: req.user.id
+    };
 
-//     jwt.sign(payload, secret, { expiresIn: tokenLife }, (err, token) => {
-//       const jwt = `Bearer ${token}`;
+    jwt.sign(payload, secret, { expiresIn: tokenLife }, (err, token) => {
+      const jwt = `Bearer ${token}`;
 
-//       const htmlWithEmbeddedJWT = `
-//     <html>
-//       <script>
-//         // Save JWT to localStorage
-//         window.localStorage.setItem('token', '${jwt}');
-//         // Redirect browser to root of application
-//         window.location.href = '/auth/success';
-//       </script>
-//     </html>       
-//     `;
+      const htmlWithEmbeddedJWT = `
+    <html>
+      <script>
+        // Save JWT to localStorage
+        window.localStorage.setItem('token', '${jwt}');
+        // Redirect browser to root of application
+        window.location.href = '/auth/success';
+      </script>
+    </html>       
+    `;
 
-//       res.send(htmlWithEmbeddedJWT);
-//     });
-//   }
-// );
+      res.send(htmlWithEmbeddedJWT);
+    });
+  }
+);
 
-// router.get(
-//   '/facebook',
-//   passport.authenticate('facebook', {
-//     session: false,
-//     scope: ['public_profile', 'email']
-//   })
-// );
+router.get(
+  '/facebook',
+  passport.authenticate('facebook', {
+    session: false,
+    scope: ['public_profile', 'email']
+  })
+);
 
-// router.get(
-//   '/facebook/callback',
-//   passport.authenticate('facebook', {
-//     failureRedirect: '/',
-//     session: false
-//   }),
-//   (req, res) => {
-//     const payload = {
-//       id: req.user.id
-//     };
+router.get(
+  '/facebook/callback',
+  passport.authenticate('facebook', {
+    failureRedirect: '/',
+    session: false
+  }),
+  (req, res) => {
+    const payload = {
+      id: req.user.id
+    };
 
-//     jwt.sign(payload, secret, { expiresIn: tokenLife }, (err, token) => {
-//       const jwt = `Bearer ${token}`;
+    jwt.sign(payload, secret, { expiresIn: tokenLife }, (err, token) => {
+      const jwt = `Bearer ${token}`;
 
-//       const htmlWithEmbeddedJWT = `
-//     <html>
-//       <script>
-//         // Save JWT to localStorage
-//         window.localStorage.setItem('token', '${jwt}');
-//         // Redirect browser to root of application
-//         window.location.href = '/auth/success';
-//       </script>
-//     </html>       
-//     `;
+      const htmlWithEmbeddedJWT = `
+    <html>
+      <script>
+        // Save JWT to localStorage
+        window.localStorage.setItem('token', '${jwt}');
+        // Redirect browser to root of application
+        window.location.href = '/auth/success';
+      </script>
+    </html>       
+    `;
 
-//       res.send(htmlWithEmbeddedJWT);
-//     });
-//   }
-// );
+      res.send(htmlWithEmbeddedJWT);
+    });
+  }
+);
 
 module.exports = router;

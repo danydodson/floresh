@@ -1,10 +1,3 @@
-/**
- * 
- * webpack.config.js
- * Combines webpack configurations
- * 
-*/
-
 const common = require('./config/webpack/webpack.common');
 const webpackMerge = require('webpack-merge');
 

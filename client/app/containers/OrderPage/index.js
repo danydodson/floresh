@@ -27,14 +27,18 @@ class OrderPage extends React.PureComponent {
   }
 
   render() {
-    const { order, isLoading } = this.props;
+    const { order, isLoading, cancelOrder, cancelOrderItem } = this.props;
 
     return (
       <div className='order-page'>
         {isLoading ? (
-          <LoadingIndicator />
+          <LoadingIndicator backdrop />
         ) : order._id ? (
-          <OrderDetails order={order} />
+          <OrderDetails
+            order={order}
+            cancelOrder={cancelOrder}
+            cancelOrderItem={cancelOrderItem}
+          />
         ) : (
           <NotFound message='no order found.' />
         )}

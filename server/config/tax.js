@@ -1,5 +1,5 @@
 module.exports = {
-  stateCode: 'IN',
-  stateName: 'Indiana',
-  stateTaxRate: 0.07
+  stateCode: 'CA',
+  stateName: 'California',
+  stateTaxRate: 0.05
 };

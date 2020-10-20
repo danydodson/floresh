@@ -1,43 +1,43 @@
 /**
+ *
  * select.js
  * this helper formulate data into select options
- * 
  */
 
 export const formatSelectOptions = (data, isMulti) => {
-  let newSelectOptions = []
+  let newSelectOptions = [];
 
   data.map(option => {
-    let newOption = {}
+    let newOption = {};
 
-    newOption.value = option._id
-    newOption.label = option.name
+    newOption.value = option._id;
+    newOption.label = option.name;
 
-    newSelectOptions.push(newOption)
-  })
+    newSelectOptions.push(newOption);
+  });
 
   if (!isMulti) {
     const emptyOption = {
       value: 0,
       label: 'No option selected'
-    }
+    };
 
-    newSelectOptions.unshift(emptyOption)
+    newSelectOptions.unshift(emptyOption);
   }
 
-  return newSelectOptions
-}
+  return newSelectOptions;
+};
 
 export const unformatSelectOptions = data => {
-  let newSelectOptions = []
+  let newSelectOptions = [];
 
   data.map(option => {
-    let newOption = {}
+    let newOption = {};
 
-    newOption._id = option.value
+    newOption._id = option.value;
 
-    newSelectOptions.push(newOption._id)
-  })
+    newSelectOptions.push(newOption._id);
+  });
 
-  return newSelectOptions
-}
+  return newSelectOptions;
+};

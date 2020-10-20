@@ -6,10 +6,12 @@
 
 import { push } from 'connected-react-router';
 import axios from 'axios';
+import { success } from 'react-notification-system-redux';
 
 import {
   FETCH_ORDERS,
   FETCH_ORDER,
+  UPDATE_ORDER,
   TOGGLE_ADD_ORDER,
   SET_ORDERS_LOADING,
   CLEAR_ORDERS
@@ -24,10 +26,24 @@ export const toggleAddOrder = () => {
   };
 };
 
+export const updateOrder = value => {
+  return {
+    type: UPDATE_ORDER,
+    payload: value
+  };
+};
+
+export const setOrderLoading = value => {
+  return {
+    type: SET_ORDERS_LOADING,
+    payload: value
+  };
+};
+
 export const fetchOrders = () => {
   return async (dispatch, getState) => {
     try {
-      dispatch({ type: SET_ORDERS_LOADING, payload: true });
+      dispatch(setOrderLoading(true));
 
       const response = await axios.get(`/api/order/list`);
 
@@ -41,7 +57,7 @@ export const fetchOrders = () => {
       dispatch(clearOrders());
       handleError(error, dispatch);
     } finally {
-      dispatch({ type: SET_ORDERS_LOADING, payload: false });
+      dispatch(setOrderLoading(false));
     }
   };
 };
@@ -49,7 +65,7 @@ export const fetchOrders = () => {
 export const fetchOrder = id => {
   return async (dispatch, getState) => {
     try {
-      dispatch({ type: SET_ORDERS_LOADING, payload: true });
+      dispatch(setOrderLoading(true));
 
       const response = await axios.get(`/api/order/${id}`);
 
@@ -60,7 +76,49 @@ export const fetchOrder = id => {
     } catch (error) {
       handleError(error, dispatch);
     } finally {
-      dispatch({ type: SET_ORDERS_LOADING, payload: false });
+      dispatch(setOrderLoading(false));
+    }
+  };
+};
+
+export const cancelOrder = () => {
+  return async (dispatch, getState) => {
+    try {
+      const order = getState().order.order;
+
+      await axios.delete(`/api/order/cancel/${order._id}`);
+
+      dispatch(push(`/dashboard/orders`));
+    } catch (error) {
+      handleError(error, dispatch);
+    }
+  };
+};
+
+export const cancelOrderItem = itemId => {
+  return async (dispatch, getState) => {
+    try {
+      const order = getState().order.order;
+
+      const response = await axios.put(`/api/order/cancel/item/${itemId}`, {
+        orderId: order._id,
+        cartId: order.cartId
+      });
+
+      if (response.data.orderCancelled) {
+        dispatch(push(`/dashboard/orders`));
+      }
+
+      const successfulOptions = {
+        title: `${response.data.message}`,
+        position: 'tr',
+        autoDismiss: 1
+      };
+
+      dispatch(success(successfulOptions));
+      dispatch(updateOrder({ itemId, status: 'Cancelled' }, 'cencelled'));
+    } catch (error) {
+      handleError(error, dispatch);
     }
   };
 };

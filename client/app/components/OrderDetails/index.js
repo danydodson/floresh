@@ -13,17 +13,17 @@ import OrderItems from '../OrderItems';
 import OrderSummary from '../OrderSummary';
 
 const OrderDetails = props => {
-  const { order } = props;
+  const { order, cancelOrder, cancelOrderItem } = props;
   return (
     <div className='order-details'>
       <Row>
         <Col xs='12' md='12'>
-          <OrderMeta order={order} />
+          <OrderMeta order={order} cancelOrder={cancelOrder} />
         </Col>
       </Row>
       <Row className='mt-5'>
         <Col xs='12' lg='8'>
-          <OrderItems order={order} />
+          <OrderItems order={order} cancelOrderItem={cancelOrderItem} />
         </Col>
         <Col xs='12' lg='4' className='mt-5 mt-lg-0'>
           <OrderSummary order={order} />

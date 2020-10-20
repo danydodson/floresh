@@ -2,12 +2,13 @@
 /node_modules
 
 # production
-/build
-/dist
+/build/*
+/build/.*
+/dist/*
+/dist/.*
   
 # misc
 package-lock.json
-.DS_Store
 
 # config file
 .vscode

@@ -4,7 +4,7 @@
  *
  */
 
-import { FETCH_USERS } from './constants'
+import { FETCH_USERS } from './constants';
 
 const initialState = {
   users: [],
@@ -32,7 +32,7 @@ const initialState = {
       text: 'Last Name'
     }
   ]
-}
+};
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -40,10 +40,10 @@ const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         users: action.payload
-      }
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default usersReducer
+export default usersReducer;

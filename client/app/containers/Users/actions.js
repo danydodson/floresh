@@ -4,20 +4,20 @@
  *
  */
 
-import axios from 'axios'
+import axios from 'axios';
 
-import { FETCH_USERS } from './constants'
+import { FETCH_USERS } from './constants';
 
-import handleError from '../../utils/error'
+import handleError from '../../utils/error';
 
 export const fetchUsers = () => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.get(`/api/user/list`)
+      const response = await axios.get(`/api/user/list`);
 
-      dispatch({ type: FETCH_USERS, payload: response.data.users })
+      dispatch({ type: FETCH_USERS, payload: response.data.users });
     } catch (error) {
-      handleError(error, dispatch)
+      handleError(error, dispatch);
     }
-  }
-}
+  };
+};

@@ -4,4 +4,4 @@
  *
  */
 
-export const FETCH_USERS = 'src/Users/FETCH_USERS'
+export const FETCH_USERS = 'src/Users/FETCH_USERS';
