@@ -31,7 +31,7 @@ mongoose
     useUnifiedTopology: true,
     useFindAndModify: false
   })
-  .then(() => console.log(`${chalk.green('✓')} ${chalk.blue('MongoDB Connected!')}`))
+  .then(() => console.log(`${chalk.green('✓')} ${chalk.blue('MongoDB Connected !')}`))
   .catch((err) => console.log(err))
 
 require('./config/passport')
@@ -51,13 +51,19 @@ if (process.env.NODE_ENV !== 'production') {
     webpackMiddleware(compiler, {
       publicPath: webpackConfig.output.publicPath,
       contentBase: path.resolve(__dirname, '../client/public'),
+      // stats: 'errors-only'
       stats: {
+        assets: false,
+        builtAt: false,
+        children: false,
         colors: true,
+        entrypoints: false,
         hash: false,
-        timings: true,
+        timings: false,
         chunks: false,
         chunkModules: false,
-        modules: false
+        modules: false,
+        version: false
       }
     })
   )
@@ -73,5 +79,5 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.listen(port, () => {
-  console.log(`${chalk.green('✓')} ${chalk.blue(`Listening on port ${port}. Visit http://localhost:${port}/ in your browser.`)}`)
+  console.log(`${chalk.green('✓')} ${chalk.blue(`Listening on port ${port}`)}`)
 })

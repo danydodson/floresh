@@ -187,6 +187,7 @@ export const addProduct = () => {
       const rules = {
         sku: 'required|min:6',
         name: 'required|min:6',
+        image: 'required',
         description: 'required|min:10|max:100',
         quantity: 'required|numeric',
         price: 'required|numeric',
@@ -207,6 +208,7 @@ export const addProduct = () => {
         'min.sku': 'Sku must be at least 6 characters.',
         'required.name': 'Name is required.',
         'min.name': 'Name must be at least 6 characters.',
+        'required.image': 'Product image is required.',
         'required.description': 'Description is required.',
         'min.description': 'Description must be at least 10 characters.',
         'max.description': 'Description may not be greater than 100 characters.',

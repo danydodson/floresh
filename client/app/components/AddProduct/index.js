@@ -4,30 +4,30 @@
  *
  */
 
-import React from 'react';
+import React from 'react'
 
-import { Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap'
 
-import Input from '../Input';
-import Button from '../../components/Button';
-import SelectOption from '../SelectOption';
+import Input from '../Input'
+import Button from '../../components/Button'
+import SelectOption from '../SelectOption'
 
-const AddProduct = props => {
-  const {
-    productFormData,
-    formErrors,
-    productChange,
-    addProduct,
-    handleBrandSelect,
-    selectedBrands,
-    brands,
-    taxableSelect
-  } = props;
+const AddProduct = (props) => {
+  const { 
+    productFormData, 
+    formErrors, 
+    productChange, 
+    addProduct, 
+    handleBrandSelect, 
+    selectedBrands, 
+    brands, 
+    taxableSelect 
+  } = props
 
   const handleSubmit = event => {
-    event.preventDefault();
-    addProduct();
-  };
+    event.preventDefault()
+    addProduct()
+  }
 
   return (
     <div className='add-product'>
@@ -43,7 +43,7 @@ const AddProduct = props => {
               placeholder={'Product Sku'}
               value={productFormData.sku}
               onInputChange={(name, value) => {
-                productChange(name, value);
+                productChange(name, value)
               }}
             />
           </Col>
@@ -56,7 +56,19 @@ const AddProduct = props => {
               placeholder={'Product Name'}
               value={productFormData.name}
               onInputChange={(name, value) => {
-                productChange(name, value);
+                productChange(name, value)
+              }}
+            />
+          </Col>
+          <Col xs='12' lg='6'>
+            <Input
+              type={'file'}
+              error={formErrors['image']}
+              label={'Product Image'}
+              name={'image'}
+              value={productFormData.image.name}
+              onInputChange={(name, value) => {
+                productChange(name, value)
               }}
             />
           </Col>
@@ -69,7 +81,7 @@ const AddProduct = props => {
               placeholder={'Product Description'}
               value={productFormData.description}
               onInputChange={(name, value) => {
-                productChange(name, value);
+                productChange(name, value)
               }}
             />
           </Col>
@@ -83,7 +95,7 @@ const AddProduct = props => {
               placeholder={'Product Quantity'}
               value={productFormData.quantity}
               onInputChange={(name, value) => {
-                productChange(name, value);
+                productChange(name, value)
               }}
             />
           </Col>
@@ -97,7 +109,7 @@ const AddProduct = props => {
               placeholder={'Product Price'}
               value={productFormData.price}
               onInputChange={(name, value) => {
-                productChange(name, value);
+                productChange(name, value)
               }}
             />
           </Col>
@@ -108,8 +120,8 @@ const AddProduct = props => {
               multi={false}
               name={'taxable'}
               options={taxableSelect}
-              handleSelectChange={value => {
-                productChange('taxable', value.value);
+              handleSelectChange={(value) => {
+                productChange('taxable', value.value)
               }}
             />
           </Col>
@@ -120,8 +132,8 @@ const AddProduct = props => {
               multi={false}
               options={brands}
               value={selectedBrands}
-              handleSelectChange={value => {
-                handleBrandSelect(value);
+              handleSelectChange={(value) => {
+                handleBrandSelect(value)
               }}
             />
           </Col>
@@ -132,7 +144,7 @@ const AddProduct = props => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default AddProduct;
+export default AddProduct

@@ -11,8 +11,15 @@
       align-items: normal;
     }
 
+    .avatar {
+      padding: 2px 8px 2px 0px;
+      border-radius: 3px;
+    }
+
     .desc {
       flex: 1;
+      @include flex();
+      align-items: center;
       @include media-breakpoint-down(xs) {
         @include flex();
         justify-content: space-between;

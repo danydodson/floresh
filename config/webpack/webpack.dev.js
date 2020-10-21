@@ -74,9 +74,7 @@ module.exports = {
     hot: true,
     disableHostCheck: false,
     historyApiFallback: true,
-    proxy: {
-      '/api': 'http://localhost:5000'
-    }
+    proxy: { '/api': 'http://localhost:5000' }
   },
   devtool: 'eval-source-map'
 }

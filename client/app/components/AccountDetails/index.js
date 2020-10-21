@@ -4,33 +4,31 @@
  *
  */
 
-import React from 'react';
+import React from 'react'
 
-import { Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap'
 
-import Input from '../Input';
-import Button from '../../components/Button';
+import Input from '../Input'
+import Button from '../../components/Button'
 
-const AccountDetails = props => {
-  const { user, accountChange, updateProfile } = props;
+const AccountDetails = (props) => {
+  const { user, accountChange, updateProfile } = props
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    updateProfile();
-  };
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    updateProfile()
+  }
 
   return (
     <div className='account-details'>
       <div className='info'>
         <div className='desc'>
           <p>
-            {user.provider === 'email' ? (
-              user.email
-            ) : (
-              <span className='provider-email'>
-                Logged in With {user.provider}
-              </span>
-            )}
+            {
+              user.provider === 'email' 
+                ? <span><img src={user.avatar} className='avatar' width='36px' height='36px'/> {user.email}</span> 
+                : <span className='provider-email'>Logged in With {user.provider}</span>
+            }
           </p>
           {user.role !== 'ROLE_MEMBER' && <span className='admin'>Admin</span>}
         </div>
@@ -45,7 +43,7 @@ const AccountDetails = props => {
               placeholder={'Please Enter Your First Name'}
               value={user.firstName ? user.firstName : ''}
               onInputChange={(name, value) => {
-                accountChange(name, value);
+                accountChange(name, value)
               }}
             />
           </Col>
@@ -57,7 +55,19 @@ const AccountDetails = props => {
               placeholder={'Please Enter Your Last Name'}
               value={user.lastName ? user.lastName : ''}
               onInputChange={(name, value) => {
-                accountChange(name, value);
+                accountChange(name, value)
+              }}
+            />
+          </Col>
+          <Col xs='12' md='12'>
+            <Input
+              type={'text'}
+              label={'Avatar'}
+              name={'avatar'}
+              placeholder={'Please Enter avatar image url'}
+              value={user.avatar ? user.avatar : ''}
+              onInputChange={(name, value) => {
+                accountChange(name, value)
               }}
             />
           </Col>
@@ -68,7 +78,7 @@ const AccountDetails = props => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default AccountDetails;
+export default AccountDetails

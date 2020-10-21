@@ -4,7 +4,7 @@
  *
  */
 
-import { TOGGLE_ADMIN_MENU } from './constants';
+import { TOGGLE_ADMIN_MENU } from './constants'
 
 const initialState = {
   isMenuOpen: false,
@@ -18,15 +18,15 @@ const initialState = {
     { to: '/merchants', name: 'Manage Merchants' },
     { to: '/orders', name: 'Manage Orders' }
   ]
-};
+}
 
 const adminReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_ADMIN_MENU:
-      return { ...state, isMenuOpen: !state.isMenuOpen };
+      return { ...state, isMenuOpen: !state.isMenuOpen }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default adminReducer;
+export default adminReducer
